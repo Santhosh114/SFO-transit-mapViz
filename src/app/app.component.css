@@ -1,0 +1,66 @@
+/* component styles */
+
+.wrapper {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: minmax(500px, 3fr) minmax(500px, 3fr) minmax(300px, 2fr);
+  grid-template-rows: 70px 730px 30px;
+  grid-template-areas:
+  "header header sidebar"
+  "content content sidebar "
+  "footer  footer  footer";
+  background-color: #f4f4f4;
+}
+
+.box {
+  background-color: #fff;
+  color: #606060;
+  padding: 10px;
+  font-size: 120%;
+}
+
+.header {
+  grid-area: header;
+  background-color: #f4f4f4;
+  box-shadow:none;
+}
+
+.heading-text {
+  margin: 10px 0 0 30px;
+  font-size: 200%;
+  color: #444;
+}
+
+.content {
+  grid-area: content;
+}
+
+.content, .sidebar {
+  box-sizing: border-box;
+  border-radius: 1.5px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+}
+
+.sidebar {
+  grid-area: sidebar;
+  overflow-y: scroll;
+  padding: 30px;
+}
+
+.sidebar > ul > li > a {
+  color: #606060;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.sidebar > ul > li {
+   color: #606060;
+}
+
+.footer {
+  grid-area: footer;
+  background-color: #f4f4f4;
+}
