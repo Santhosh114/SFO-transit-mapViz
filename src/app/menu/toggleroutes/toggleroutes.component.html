@@ -1,13 +1,64 @@
-<p>
-  myTags!
-</p>
+<ngb-accordion [closeOthers]="true" activeIds="static-1">
+  <ngb-panel id="static-1" title="Express Routes" class='routeType'>
+    <ng-template ngbPanelContent>
+      <div *ngFor="let route of routetags">
+        <div [ngSwitch]='route.tag.slice(-1)'>
+          <p class='tagText' *ngSwitchCase="'X'">{{ route.title }}</p>
+        </div>
+      </div>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel id="static-2" title="Rapid Routes" class='routeType'>
+    <ng-template ngbPanelContent>
+      <div *ngFor="let route of routetags">
+        <div [ngSwitch]='route.tag.slice(-1)'>
+          <p class='tagText' *ngSwitchCase="'R'">{{ route.title }}</p>
+        </div>
+      </div>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel id="static-3" title="Owl Routes" class='routeType'>
+    <ng-template ngbPanelContent>
+      <div *ngFor="let route of routetags">
+        <div [ngSwitch]='route.title.match("Owl")'>
+          <p class='tagText' *ngSwitchCase="'Owl'">{{ route.title }}</p>
+        </div>
+      </div>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel id="static-4" title="Cable Cars" class='routeType'>
+    <ng-template ngbPanelContent>
+      <div *ngFor="let route of routetags">
+        <div [ngSwitch]='route.title.match("Car")'>
+          <p class='tagText' *ngSwitchCase="'Car'">{{ route.title }}</p>
+        </div>
+      </div>
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>
 
-<div *ngFor="let route of routetags">
-  <div [ngSwitch]='route.tag.slice(-1)'>
-    <p class='tagText' *ngSwitchCase="'X'">{{ route.title }}</p>
-  </div>
-</div>
+<!--
+<ngb-panel id="static-5" title="Routes 1-88" class='routeType'>
+  <ng-template ngbPanelContent>
+    <div *ngFor="let route of routetags">
+      <div [ngSwitch]='route.title.match(/^[0-9]+$/)'>
+        <p class='tagText' *ngSwitchCase="">{{ route.title }}</p>
+      </div>
+    </div>
+  </ng-template>
+</ngb-panel>
 
-<div *ngFor="let tag of routetags">
-  <p style="font-size:10px; color: blue">{{ tag.title }}</p>
-</div>
+<ngb-panel id="static-6" title="Routes E-N" class='routeType'>
+  <ng-template ngbPanelContent>
+    <div *ngFor="let route of routetags">
+      <div [ngSwitch]='route.title.match(/^[0-9]+$/)'>
+        <p class='tagText' *ngSwitchCase="">{{ route.title }}</p>
+      </div>
+    </div>
+  </ng-template>
+</ngb-panel>
+
+// Link to get the data 
+// http://webservices.nextbus.com/service/publicXMLFeed?command=routeList&a=sf-muni
+
+-->

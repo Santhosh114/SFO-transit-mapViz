@@ -116,3 +116,43 @@ public getLocations() {
   return this._basePath + 'command=' + this._command + '&a=' + this._agency;
 }
 // http://webservices.nextbus.com/service/publicXMLFeed?command=vehicleLocations&a=sf-muni&r=E&t=1506866730857
+
+
+<!-- <ngb-panel id="static-2" title="Rapid Routes">
+  <ng-template ngbPanelContent>
+    <div *ngFor="let route of routetags">
+      <div [ngSwitch]='route.tag.slice(-1)'>
+        <p class='tagText' *ngSwitchCase="'X'">{{ route.title }}</p>
+      </div>
+    </div>
+  </ng-template>
+</ngb-panel> -->
+
+
+<!-- <ngb-panel id="static-4" title="Owl Routes">
+  <ng-template ngbPanelContent>
+    <div *ngFor="let route of routetags">
+      <div [ngSwitch]='route.title.endsWith('Owl')'>
+        <p class='tagText' *ngSwitchCase="'Owl'">{{ route.title }}</p>
+      </div>
+    </div>
+  </ng-template>
+</ngb-panel> -->
+<!-- <ngb-panel id="static-5" title="Routes 1-88">
+  <ng-template ngbPanelContent>
+    <div *ngFor="let route of routetags">
+      <div [ngSwitch]='route.tag.slice(-1)'>
+        <p class='tagText' *ngSwitchCase="'X'">{{ route.title }}</p>
+      </div>
+    </div>
+  </ng-template>
+</ngb-panel>
+<ngb-panel id="static-5" title="Routes E-N">
+  <ng-template ngbPanelContent>
+    <div *ngFor="let route of routetags">
+      <div [ngSwitch]='route.tag.slice(-1)'>
+        <p class='tagText' *ngSwitchCase="'E' or 'F'">{{ route.title }}</p>
+      </div>
+    </div>
+  </ng-template>
+</ngb-panel> -->

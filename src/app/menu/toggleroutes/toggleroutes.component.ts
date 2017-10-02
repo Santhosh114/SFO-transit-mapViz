@@ -15,7 +15,6 @@ export class ToggleroutesComponent implements OnInit {
   ngOnInit() {
     this.getRouteTags.fetchData().subscribe((tags) => {
       this.routetags = tags.route;
-      console.log(tags.route);
     });
   }
 }
