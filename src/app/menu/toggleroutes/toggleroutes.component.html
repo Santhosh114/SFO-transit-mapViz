@@ -1,0 +1,13 @@
+<p>
+  myTags!
+</p>
+
+<div *ngFor="let route of routetags">
+  <div [ngSwitch]='route.tag.slice(-1)'>
+    <p class='tagText' *ngSwitchCase="'X'">{{ route.title }}</p>
+  </div>
+</div>
+
+<div *ngFor="let tag of routetags">
+  <p style="font-size:10px; color: blue">{{ tag.title }}</p>
+</div>

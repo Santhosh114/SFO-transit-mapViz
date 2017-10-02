@@ -2,17 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { ToggleComponent } from './toggle/toggle.component';
-import { MapComponent } from './map/map.component';
+import { MenuModule } from './menu/menu.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ToggleComponent,
-    MapComponent
+    AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    MenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

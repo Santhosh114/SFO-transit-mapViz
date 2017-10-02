@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MapComponent } from './map.component';
+import { ToggleroutesComponent } from './toggleroutes.component';
 
-describe('MapComponent', () => {
-  let component: MapComponent;
-  let fixture: ComponentFixture<MapComponent>;
+describe('ToggleroutesComponent', () => {
+  let component: ToggleroutesComponent;
+  let fixture: ComponentFixture<ToggleroutesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MapComponent ]
+      declarations: [ ToggleroutesComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MapComponent);
+    fixture = TestBed.createComponent(ToggleroutesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
