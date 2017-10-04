@@ -3,8 +3,9 @@
 .wrapper {
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: minmax(500px, 3fr) minmax(500px, 3fr) minmax(300px, 2fr);
-  grid-template-rows: 70px 730px 30px;
+  grid-template-columns: 420px 420px 500px;
+  /*minmax(400px, 3fr) minmax(400px, 3fr) minmax(500px, 2fr);*/
+  grid-template-rows: 70px 750px 30px;
   grid-template-areas:
   "header header sidebar"
   "content content sidebar "

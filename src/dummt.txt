@@ -1,3 +1,17 @@
+JS/D3 hacks ---------------------------------
+
+.each(function(d) {
+    var header = d3.select(this);
+    ['data-class', 'data-hide', 'data-ignore'].forEach(function(key) {
+        if (key in d)
+            header.attr(key, d[key]);
+    });
+});
+
+
+
+//    end ---------------------------------------------
+
 <div style="text-align:center">
   <h1>
     Welcome to {{title}}!
@@ -16,14 +30,6 @@
     <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
   </li>
 </ul>
-
-
-
-
-
-
-
-
 
 
 
@@ -118,25 +124,7 @@ public getLocations() {
 // http://webservices.nextbus.com/service/publicXMLFeed?command=vehicleLocations&a=sf-muni&r=E&t=1506866730857
 
 
-<!-- <ngb-panel id="static-2" title="Rapid Routes">
-  <ng-template ngbPanelContent>
-    <div *ngFor="let route of routetags">
-      <div [ngSwitch]='route.tag.slice(-1)'>
-        <p class='tagText' *ngSwitchCase="'X'">{{ route.title }}</p>
-      </div>
-    </div>
-  </ng-template>
-</ngb-panel> -->
 
-
-<!-- <ngb-panel id="static-4" title="Owl Routes">
-  <ng-template ngbPanelContent>
-    <div *ngFor="let route of routetags">
-      <div [ngSwitch]='route.title.endsWith('Owl')'>
-        <p class='tagText' *ngSwitchCase="'Owl'">{{ route.title }}</p>
-      </div>
-    </div>
-  </ng-template>
 </ngb-panel> -->
 <!-- <ngb-panel id="static-5" title="Routes 1-88">
   <ng-template ngbPanelContent>
@@ -156,3 +144,11 @@ public getLocations() {
     </div>
   </ng-template>
 </ngb-panel> -->
+
+
+
+//  .style('background', '#f9f6f4')
+//  .style('background', '-moz-radial-gradient(center, ellipse cover,  #87bded 0%, #c7dae7 100%)')
+//  .style('background', '-webkit-gradient(radial, center center, 0px,
+// center center, 100%, color-stop(0%,#87bded), color-stop(100%,#77b2e5))')
+//  .style('background', '-webkit-radial-gradient(center, ellipse cover,  #87bded 0%, #77b2e5 100%)')

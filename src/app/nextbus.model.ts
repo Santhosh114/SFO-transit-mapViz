@@ -5,6 +5,6 @@ export class NextBus {
     public _time?: string
   ) { }
 
-  public _basePath = 'http://webservices.nextbus.com/service/publicJSONFeed?';
+  public _basePath = 'http://webservices.nextbus.com/service/publicJSONFeed';
   public _agency = 'sf-muni';
 }

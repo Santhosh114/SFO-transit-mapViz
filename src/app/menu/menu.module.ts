@@ -8,8 +8,7 @@ import { FetchroutesService } from './fetchroutes.service';
 
 @NgModule({
   declarations: [
-    ToggleroutesComponent,
-    // FetchroutesService
+    ToggleroutesComponent
   ],
   imports: [
     CommonModule,
@@ -17,8 +16,7 @@ import { FetchroutesService } from './fetchroutes.service';
     NgbModule,
   ],
   exports: [
-    ToggleroutesComponent,
-    // FetchroutesService
+    ToggleroutesComponent
   ],
   providers: [FetchroutesService]
 })
