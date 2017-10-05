@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
-import { NextBus } from '../nextbus.model';
+import { NextBus } from '../../nextbus.model';
 
 @Injectable()
 export class FetchroutesService {

@@ -24,12 +24,14 @@
   grid-area: header;
   background-color: #f4f4f4;
   box-shadow:none;
+  margin: 10px 0 0 30px;
 }
 
 .heading-text {
-  margin: 10px 0 0 30px;
-  font-size: 200%;
+  font-size: 140%;
   color: #444;
+  position: relative;
+  padding: 15px;
 }
 
 .content {

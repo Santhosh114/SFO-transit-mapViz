@@ -4,7 +4,7 @@ import { HttpModule } from '@angular/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { ToggleroutesComponent } from './toggleroutes/toggleroutes.component';
-import { FetchroutesService } from './fetchroutes.service';
+import { FetchroutesService } from './services/fetchroutes.service';
 
 @NgModule({
   declarations: [

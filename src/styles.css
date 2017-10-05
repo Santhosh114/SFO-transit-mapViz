@@ -80,14 +80,14 @@ body {
 .fill-black {
   fill: #000;
 }
-.fill-semiblack {
+.fill-semiBlack {
   fill: #444;
 }
 .fill-darkGrey {
-  fill: #666666;
+  fill: #545454;
 }
 .fill-grey {
-  fill: #999999;
+  fill: #696969;
 }
 .fill-lightGrey {
   fill: #e5e5e5;

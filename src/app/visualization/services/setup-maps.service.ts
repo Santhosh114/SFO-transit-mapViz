@@ -7,14 +7,18 @@ export class SetupMapsService {
   constructor() { }
 
   drawBaseLayerText(_t, mapObj) {
+
+    _t.svgGroup = _t.svg.append('g').attr('id', 'labels');
     _t.geoPath = d3.geoPath()
       .projection(_t.projection);
-    _t.svg.append('g')
-      .attr('id', 'labels')
-      .selectAll('text')
+
+    _t.svgGroup.selectAll('text')
       .data(mapObj.map.features)
       .enter()
       .append('text')
+      // .attr('id', function(e) {
+      //   return 'labelId-' + e.properties.neighborho;
+      // })
       .text(function(e) {
         return e.properties.neighborho;
       })
@@ -24,7 +28,16 @@ export class SetupMapsService {
       .attr('y', function(e) {
         return _t.geoPath.centroid(e)[1];
       })
-      .attr('class', 'pos-middel v-central size-tiny fill-semiblack weight-bold');
+      .attr('class', 'pos-middel v-central size-tiny fill-grey weight-bold')
+      .each(function(d) {
+          // const header = d3.select(this);
+          // console.log(header);
+          // console.log(d);
+          // ['data-class', 'data-hide', 'data-ignore'].forEach(function(key) {
+          //     if (key in d)
+          //         header.attr(key, d[key]);
+          // });
+      });
   }
 
   drawBaseMapLayer(_t, mapObj) {
@@ -37,7 +50,7 @@ export class SetupMapsService {
     switch (mapObj.mapName) {
       case 'neighborhoods':
         fill = '#d0e1ed';
-        stroke = '#d3d3d3';
+        stroke = '#dbdbdb';
         break;
       case 'streets':
         fill = '#fff';
