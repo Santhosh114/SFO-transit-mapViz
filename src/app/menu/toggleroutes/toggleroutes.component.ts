@@ -9,6 +9,8 @@ import { WindowRefService } from '../../global-services/window-ref.service';
 })
 export class ToggleroutesComponent implements OnInit {
   routetags: RouteTags[];
+  numbers = new RegExp(/^[0-8]\d*$/);
+  character = new RegExp(/^[A-Z]$/);
   _window: Window;
   constructor(private getRouteTags: FetchroutesService,
               public windowRef: WindowRefService) {

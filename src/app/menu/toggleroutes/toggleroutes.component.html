@@ -1,79 +1,64 @@
 <ngb-accordion [closeOthers]="true" activeIds="static-1">
-  <ngb-panel id="static-1" title="Express Routes" class='routeType'>
+  <ngb-panel id="static-1" title="Routes E-N" class='routeType'>
+    <ng-template ngbPanelContent>
+      <div *ngFor="let route of routetags">
+        <div [ngSwitch]='character.test(route.tag)'>
+          <p class='tagText' *ngSwitchCase="true">{{ route.title }}</p>
+          <div *ngSwitchCase="true" class="switch">
+            <input *ngSwitchCase="true" type="checkbox" name="selectedRoutes" value="{{route.tag}}" id="{{route.tag}}" class="cmn-toggle cmn-toggle-round" (change)="selectedOptions()" [(ngModel)]="route.checked" />
+            <label *ngSwitchCase="true" class="checkbox" for="{{route.tag}}"></label>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel id="static-2" title="Routes 1-88" class='routeType'>
+    <ng-template ngbPanelContent>
+      <div *ngFor="let route of routetags">
+        <div [ngSwitch]='numbers.test(route.tag)'>
+          <p class='tagText' *ngSwitchCase="true">{{ route.title }}</p>
+          <div *ngSwitchCase="true" class="switch">
+            <input *ngSwitchCase="true" type="checkbox" name="selectedRoutes" value="{{route.tag}}" id="{{route.tag}}" class="cmn-toggle cmn-toggle-round" (change)="selectedOptions()" [(ngModel)]="route.checked" />
+            <label *ngSwitchCase="true" class="checkbox" for="{{route.tag}}"></label>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel id="static-3" title="Express Routes" class='routeType'>
     <ng-template ngbPanelContent>
       <div *ngFor="let route of routetags">
         <div [ngSwitch]='route.tag.slice(-1)'>
           <p class='tagText' *ngSwitchCase="'X'">{{ route.title }}</p>
           <div *ngSwitchCase="'X'" class="switch">
-            <input *ngSwitchCase="'X'"
-              type="checkbox"
-              name="selectedRoutes"
-              value="{{route.tag}}"
-              id="{{route.tag}}"
-              class="cmn-toggle cmn-toggle-round"
-              (change)="selectedOptions()"
-              [(ngModel)]="route.checked" />
+            <input *ngSwitchCase="'X'" type="checkbox" name="selectedRoutes" value="{{route.tag}}" id="{{route.tag}}" class="cmn-toggle cmn-toggle-round" (change)="selectedOptions()" [(ngModel)]="route.checked" />
             <label *ngSwitchCase="'X'" class="checkbox" for="{{route.tag}}"></label>
           </div>
         </div>
       </div>
     </ng-template>
   </ngb-panel>
-  <ngb-panel id="static-2" title="Rapid Routes" class='routeType'>
+  <ngb-panel id="static-4" title="Rapid Routes" class='routeType'>
     <ng-template ngbPanelContent>
       <div *ngFor="let route of routetags">
         <div [ngSwitch]='route.tag.slice(-1)'>
           <p class='tagText' *ngSwitchCase="'R'">{{ route.title }}</p>
           <div *ngSwitchCase="'R'" class="switch">
-            <input *ngSwitchCase="'R'"
-              type="checkbox"
-              name="selectedRoutes"
-              value="{{route.tag}}"
-              id="{{route.tag}}"
-              class="cmn-toggle cmn-toggle-round"
-              (change)="selectedOptions()"
-              [(ngModel)]="route.checked" />
+            <input *ngSwitchCase="'R'" type="checkbox" name="selectedRoutes" value="{{route.tag}}" id="{{route.tag}}" class="cmn-toggle cmn-toggle-round" (change)="selectedOptions()" [(ngModel)]="route.checked" />
             <label *ngSwitchCase="'R'" class="checkbox" for="{{route.tag}}"></label>
           </div>
         </div>
       </div>
     </ng-template>
   </ngb-panel>
-  <ngb-panel id="static-3" title="Owl Routes" class='routeType'>
+  <ngb-panel id="static-5" title="Owl Routes" class='routeType'>
     <ng-template ngbPanelContent>
       <div *ngFor="let route of routetags">
         <div [ngSwitch]='route.title.match("Owl")'>
           <p class='tagText' *ngSwitchCase="'Owl'">{{ route.title }}</p>
           <div *ngSwitchCase="'Owl'" class="switch">
-            <input *ngSwitchCase="'Owl'"
-              type="checkbox"
-              name="selectedRoutes"
-              value="{{route.tag}}"
-              id="{{route.tag}}"
-              class="cmn-toggle cmn-toggle-round"
-              (change)="selectedOptions()"
-              [(ngModel)]="route.checked" />
+            <input *ngSwitchCase="'Owl'" type="checkbox" name="selectedRoutes" value="{{route.tag}}" id="{{route.tag}}" class="cmn-toggle cmn-toggle-round" (change)="selectedOptions()" [(ngModel)]="route.checked" />
             <label *ngSwitchCase="'Owl'" class="checkbox" for="{{route.tag}}"></label>
-          </div>
-        </div>
-      </div>
-    </ng-template>
-  </ngb-panel>
-  <ngb-panel id="static-4" title="Cable Cars" class='routeType'>
-    <ng-template ngbPanelContent>
-      <div *ngFor="let route of routetags">
-        <div [ngSwitch]='route.title.match("Car")'>
-          <p class='tagText' *ngSwitchCase="'Car'">{{ route.title }}</p>
-          <div *ngSwitchCase="'Car'" class="switch">
-            <input *ngSwitchCase="'Car'"
-              type="checkbox"
-              name="selectedRoutes"
-              value="{{route.tag}}"
-              id="{{route.tag}}"
-              class="cmn-toggle cmn-toggle-round"
-              (change)="selectedOptions()"
-              [(ngModel)]="route.checked" />
-            <label *ngSwitchCase="'Car'" class="checkbox" for="{{route.tag}}"></label>
           </div>
         </div>
       </div>
