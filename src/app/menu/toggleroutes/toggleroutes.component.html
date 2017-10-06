@@ -4,6 +4,17 @@
       <div *ngFor="let route of routetags">
         <div [ngSwitch]='route.tag.slice(-1)'>
           <p class='tagText' *ngSwitchCase="'X'">{{ route.title }}</p>
+          <div *ngSwitchCase="'X'" class="switch">
+            <input *ngSwitchCase="'X'"
+              type="checkbox"
+              name="selectedRoutes"
+              value="{{route.tag}}"
+              id="{{route.tag}}"
+              class="cmn-toggle cmn-toggle-round"
+              (change)="selectedOptions()"
+              [(ngModel)]="route.checked" />
+            <label *ngSwitchCase="'X'" class="checkbox" for="{{route.tag}}"></label>
+          </div>
         </div>
       </div>
     </ng-template>
@@ -13,6 +24,17 @@
       <div *ngFor="let route of routetags">
         <div [ngSwitch]='route.tag.slice(-1)'>
           <p class='tagText' *ngSwitchCase="'R'">{{ route.title }}</p>
+          <div *ngSwitchCase="'R'" class="switch">
+            <input *ngSwitchCase="'R'"
+              type="checkbox"
+              name="selectedRoutes"
+              value="{{route.tag}}"
+              id="{{route.tag}}"
+              class="cmn-toggle cmn-toggle-round"
+              (change)="selectedOptions()"
+              [(ngModel)]="route.checked" />
+            <label *ngSwitchCase="'R'" class="checkbox" for="{{route.tag}}"></label>
+          </div>
         </div>
       </div>
     </ng-template>
@@ -22,6 +44,17 @@
       <div *ngFor="let route of routetags">
         <div [ngSwitch]='route.title.match("Owl")'>
           <p class='tagText' *ngSwitchCase="'Owl'">{{ route.title }}</p>
+          <div *ngSwitchCase="'Owl'" class="switch">
+            <input *ngSwitchCase="'Owl'"
+              type="checkbox"
+              name="selectedRoutes"
+              value="{{route.tag}}"
+              id="{{route.tag}}"
+              class="cmn-toggle cmn-toggle-round"
+              (change)="selectedOptions()"
+              [(ngModel)]="route.checked" />
+            <label *ngSwitchCase="'Owl'" class="checkbox" for="{{route.tag}}"></label>
+          </div>
         </div>
       </div>
     </ng-template>
@@ -31,34 +64,19 @@
       <div *ngFor="let route of routetags">
         <div [ngSwitch]='route.title.match("Car")'>
           <p class='tagText' *ngSwitchCase="'Car'">{{ route.title }}</p>
+          <div *ngSwitchCase="'Car'" class="switch">
+            <input *ngSwitchCase="'Car'"
+              type="checkbox"
+              name="selectedRoutes"
+              value="{{route.tag}}"
+              id="{{route.tag}}"
+              class="cmn-toggle cmn-toggle-round"
+              (change)="selectedOptions()"
+              [(ngModel)]="route.checked" />
+            <label *ngSwitchCase="'Car'" class="checkbox" for="{{route.tag}}"></label>
+          </div>
         </div>
       </div>
     </ng-template>
   </ngb-panel>
 </ngb-accordion>
-
-<!--
-<ngb-panel id="static-5" title="Routes 1-88" class='routeType'>
-  <ng-template ngbPanelContent>
-    <div *ngFor="let route of routetags">
-      <div [ngSwitch]='route.title.match(/^[0-9]+$/)'>
-        <p class='tagText' *ngSwitchCase="">{{ route.title }}</p>
-      </div>
-    </div>
-  </ng-template>
-</ngb-panel>
-
-<ngb-panel id="static-6" title="Routes E-N" class='routeType'>
-  <ng-template ngbPanelContent>
-    <div *ngFor="let route of routetags">
-      <div [ngSwitch]='route.title.match(/^[0-9]+$/)'>
-        <p class='tagText' *ngSwitchCase="">{{ route.title }}</p>
-      </div>
-    </div>
-  </ng-template>
-</ngb-panel>
-
-// Link to get the data 
-// http://webservices.nextbus.com/service/publicXMLFeed?command=routeList&a=sf-muni
-
--->

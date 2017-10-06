@@ -4,21 +4,13 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class SetupMapsService {
 
-  constructor() { }
-
+  // method to overlay text on to the maps
   drawBaseLayerText(_t, mapObj) {
-
     _t.svgGroup = _t.svg.append('g').attr('id', 'labels');
-    _t.geoPath = d3.geoPath()
-      .projection(_t.projection);
-
     _t.svgGroup.selectAll('text')
       .data(mapObj.map.features)
       .enter()
       .append('text')
-      // .attr('id', function(e) {
-      //   return 'labelId-' + e.properties.neighborho;
-      // })
       .text(function(e) {
         return e.properties.neighborho;
       })
@@ -28,36 +20,25 @@ export class SetupMapsService {
       .attr('y', function(e) {
         return _t.geoPath.centroid(e)[1];
       })
-      .attr('class', 'pos-middel v-central size-tiny fill-grey weight-bold')
-      .each(function(d) {
-          // const header = d3.select(this);
-          // console.log(header);
-          // console.log(d);
-          // ['data-class', 'data-hide', 'data-ignore'].forEach(function(key) {
-          //     if (key in d)
-          //         header.attr(key, d[key]);
-          // });
-      });
+      .attr('class', 'pos-middel v-central size-tiny fill-semiBlack weight-bold');
   }
 
+  // method to layer maps on the base SVG element
   drawBaseMapLayer(_t, mapObj) {
     let fill: string;
     let stroke: string;
     _t.svgGroup = _t.svg.append('g').attr('id', 'layer_' + mapObj.mapName);
-    _t.geoPath = d3.geoPath()
-      .projection(_t.projection);
-
     switch (mapObj.mapName) {
       case 'neighborhoods':
-        fill = '#d0e1ed';
+        fill = '#edebd0';
         stroke = '#dbdbdb';
         break;
       case 'streets':
-        fill = '#fff';
+        fill = '#cbe5a6';
         stroke = '#fff';
         break;
       default:
-        fill = '#fff';
+        fill = '#cbe5a6';
         stroke = '#d3d3d3';
         break;
     }

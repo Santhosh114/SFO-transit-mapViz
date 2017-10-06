@@ -1,22 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-
 import { NextBus } from '../../nextbus.model';
 
 @Injectable()
 export class FetchroutesService {
 
-  _nb = new NextBus('routeList');
+  constructor(private http: Http) {}
 
-  constructor(private http: Http) {
-  }
-
-  fetchData() {
-    return this.http.get(this._nb._basePath, {
+  fetchTags() {
+    const _nb = new NextBus('routeList');
+    return this.http.get(_nb.basePath, {
       params: {
-        command: this._nb._command,
-        a: this._nb._agency
+        command: _nb.command,
+        a: _nb.agency
       }
     })
     .map(

@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { MapComponent } from './map/map.component';
 import { SetupMapsService } from './services/setup-maps.service';
-import { ManageRoutesService } from './services/manage-routes.service';
-import { FetchRoutePathsService } from './services/fetch-routepaths.service';
+import { InteractionService } from './services/user-interaction.service';
+import { DrawRoutePathsService } from './services/draw-routepaths.service';
 
 
 @NgModule({
@@ -19,8 +19,8 @@ import { FetchRoutePathsService } from './services/fetch-routepaths.service';
   ],
   providers: [
     SetupMapsService,
-    ManageRoutesService,
-    FetchRoutePathsService
+    InteractionService,
+    DrawRoutePathsService
   ]
 })
 export class VisualizationModule { }

@@ -11,3 +11,7 @@ export const ScriptStore: Scripts[] = [
     // this.loader.load('mappingFunctions', 'mappingFunctionsts').then(data => {
     //   console.log('script loaded ', data);
     // }).catch(error => console.log(error));
+
+    // For global Window obj setting & getting
+    // import { WindowRefService } from '../../global-services/window-ref.service';
+    // public windowRef: WindowRefService this._window = windowRef.nativeWindow;
