@@ -5,7 +5,8 @@
         <div [ngSwitch]='character.test(route.tag)'>
           <p class='tagText' *ngSwitchCase="true">{{ route.title }}</p>
           <div *ngSwitchCase="true" class="switch">
-            <input *ngSwitchCase="true" type="checkbox" name="selectedRoutes" value="{{route.tag}}" id="{{route.tag}}" class="cmn-toggle cmn-toggle-round" (change)="selectedOptions()" [(ngModel)]="route.checked" />
+            <input *ngSwitchCase="true" type="checkbox" name="selectedRoutes" value="{{route.tag}}" id="{{route.tag}}"
+            class="cmn-toggle cmn-toggle-round" (change)="updateRoutes()" [(ngModel)]="route.checked" />
             <label *ngSwitchCase="true" class="checkbox" for="{{route.tag}}"></label>
           </div>
         </div>
@@ -18,7 +19,8 @@
         <div [ngSwitch]='numbers.test(route.tag)'>
           <p class='tagText' *ngSwitchCase="true">{{ route.title }}</p>
           <div *ngSwitchCase="true" class="switch">
-            <input *ngSwitchCase="true" type="checkbox" name="selectedRoutes" value="{{route.tag}}" id="{{route.tag}}" class="cmn-toggle cmn-toggle-round" (change)="selectedOptions()" [(ngModel)]="route.checked" />
+            <input *ngSwitchCase="true" type="checkbox" name="selectedRoutes" value="{{route.tag}}" id="{{route.tag}}"
+            class="cmn-toggle cmn-toggle-round" (change)="updateRoutes()" [(ngModel)]="route.checked"/>
             <label *ngSwitchCase="true" class="checkbox" for="{{route.tag}}"></label>
           </div>
         </div>
@@ -31,7 +33,8 @@
         <div [ngSwitch]='route.tag.slice(-1)'>
           <p class='tagText' *ngSwitchCase="'X'">{{ route.title }}</p>
           <div *ngSwitchCase="'X'" class="switch">
-            <input *ngSwitchCase="'X'" type="checkbox" name="selectedRoutes" value="{{route.tag}}" id="{{route.tag}}" class="cmn-toggle cmn-toggle-round" (change)="selectedOptions()" [(ngModel)]="route.checked" />
+            <input *ngSwitchCase="'X'" type="checkbox" name="selectedRoutes" value="{{route.tag}}" id="{{route.tag}}"
+            class="cmn-toggle cmn-toggle-round" (change)="updateRoutes()" [(ngModel)]="route.checked"/>
             <label *ngSwitchCase="'X'" class="checkbox" for="{{route.tag}}"></label>
           </div>
         </div>
@@ -44,7 +47,7 @@
         <div [ngSwitch]='route.tag.slice(-1)'>
           <p class='tagText' *ngSwitchCase="'R'">{{ route.title }}</p>
           <div *ngSwitchCase="'R'" class="switch">
-            <input *ngSwitchCase="'R'" type="checkbox" name="selectedRoutes" value="{{route.tag}}" id="{{route.tag}}" class="cmn-toggle cmn-toggle-round" (change)="selectedOptions()" [(ngModel)]="route.checked" />
+            <input *ngSwitchCase="'R'" type="checkbox" name="selectedRoutes" value="{{route.tag}}" id="{{route.tag}}" class="cmn-toggle cmn-toggle-round" (change)="updateRoutes()" [(ngModel)]="route.checked" />
             <label *ngSwitchCase="'R'" class="checkbox" for="{{route.tag}}"></label>
           </div>
         </div>
@@ -57,7 +60,7 @@
         <div [ngSwitch]='route.title.match("Owl")'>
           <p class='tagText' *ngSwitchCase="'Owl'">{{ route.title }}</p>
           <div *ngSwitchCase="'Owl'" class="switch">
-            <input *ngSwitchCase="'Owl'" type="checkbox" name="selectedRoutes" value="{{route.tag}}" id="{{route.tag}}" class="cmn-toggle cmn-toggle-round" (change)="selectedOptions()" [(ngModel)]="route.checked" />
+            <input *ngSwitchCase="'Owl'" type="checkbox" name="selectedRoutes" value="{{route.tag}}" id="{{route.tag}}" class="cmn-toggle cmn-toggle-round" (change)="updateRoutes()" [(ngModel)]="route.checked" />
             <label *ngSwitchCase="'Owl'" class="checkbox" for="{{route.tag}}"></label>
           </div>
         </div>

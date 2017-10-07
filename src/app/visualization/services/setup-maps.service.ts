@@ -20,7 +20,7 @@ export class SetupMapsService {
       .attr('y', function(e) {
         return _t.geoPath.centroid(e)[1];
       })
-      .attr('class', 'pos-middel v-central size-tiny fill-semiBlack weight-bold');
+      .attr('class', 'pos-middel v-central size-tiny fill-grey weight-bold');
   }
 
   // method to layer maps on the base SVG element

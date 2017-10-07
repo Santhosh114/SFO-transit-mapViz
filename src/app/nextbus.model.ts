@@ -6,5 +6,6 @@ export class NextBus {
   ) { }
 
   basePath = 'http://webservices.nextbus.com/service/publicJSONFeed';
+  basePathXML = 'http://webservices.nextbus.com/service/publicXMLFeed';
   agency = 'sf-muni';
 }

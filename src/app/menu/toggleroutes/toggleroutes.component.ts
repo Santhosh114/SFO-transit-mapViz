@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FetchroutesService } from '../services/fetchroutes.service';
-import { WindowRefService } from '../../global-services/window-ref.service';
+import { InteractionService } from '../../visualization/services/user-interaction.service';
 
 @Component({
   selector: 'app-toggleroutes',
@@ -9,12 +9,11 @@ import { WindowRefService } from '../../global-services/window-ref.service';
 })
 export class ToggleroutesComponent implements OnInit {
   routetags: RouteTags[];
+  currentTag: string[];
   numbers = new RegExp(/^[0-8]\d*$/);
   character = new RegExp(/^[A-Z]$/);
-  _window: Window;
   constructor(private getRouteTags: FetchroutesService,
-              public windowRef: WindowRefService) {
-              this._window = windowRef.nativeWindow;
+              private userInteraction: InteractionService) {
   }
 
   ngOnInit() {
@@ -24,10 +23,12 @@ export class ToggleroutesComponent implements OnInit {
     });
   }
 
-  selectedOptions() {
-    console.log(this.routetags
+  updateRoutes() {
+    const _t = this;
+    _t.currentTag = this.routetags
             .filter(opt => opt.checked)
-            .map(opt => opt.tag));
+            .map(opt => opt.tag);
+    _t.userInteraction.populateBuses(_t.currentTag);
     return this.routetags
             .filter(opt => opt.checked)
             .map(opt => opt.tag);

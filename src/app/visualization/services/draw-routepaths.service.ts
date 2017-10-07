@@ -5,6 +5,7 @@ import { NextBus } from '../../nextbus.model';
 
 @Injectable()
 export class DrawRoutePathsService {
+  public routeColors: RouteColors[] = [];
   constructor(private http: Http) { }
 
   // method to convert points into LineString co-ordinates
@@ -41,6 +42,7 @@ export class DrawRoutePathsService {
       .append('path')
       .attr('d', _map.geoPath)
       .style('stroke', '#008fe5')
+      .style('strokewidth', '2')
       .style('opacity', 0)
       .attr('class', 'pathBind' + route.tag);
 
@@ -48,9 +50,9 @@ export class DrawRoutePathsService {
 
   // method to make http call to fetch all routes
   drawRoutes(_map) {
-    const _nb = new NextBus('routeConfig');
     return new Promise((resolve, reject) => {
       const _t = this;
+      const _nb = new NextBus('routeConfig');
       _t.http.get(_nb.basePath, {
         params: {
           command: _nb.command,
@@ -59,13 +61,21 @@ export class DrawRoutePathsService {
       })
         .map(response => response.json())
         .subscribe(allRoutes => {
-          allRoutes.route.map((rawRoute) => {
-            _t.drawPaths(rawRoute, _map);
-          });
+          if (allRoutes.route) {
+            allRoutes.route.map((rawRoute) => {
+              _t.routeColors.push({ tag: rawRoute.tag, color: rawRoute.color });
+              _t.drawPaths(rawRoute, _map);
+            });
+          } else { throw new Error('NextBus data not fetched!'); }
           resolve(_t);
         });
     }).catch((err) => {
       console.log(err);
     });
   }
+}
+
+interface RouteColors {
+  tag: string;
+  color: string;
 }

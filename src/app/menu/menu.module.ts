@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ToggleroutesComponent } from './toggleroutes/toggleroutes.component';
 import { FetchroutesService } from './services/fetchroutes.service';
+import { InteractionService } from '../visualization/services/user-interaction.service';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FetchroutesService } from './services/fetchroutes.service';
   exports: [
     ToggleroutesComponent
   ],
-  providers: [FetchroutesService]
+  providers: [FetchroutesService,
+    InteractionService]
 })
 export class MenuModule { }

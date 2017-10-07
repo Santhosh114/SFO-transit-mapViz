@@ -4,6 +4,12 @@ import { SetupMapsService } from '../services/setup-maps.service';
 import { InteractionService } from '../services/user-interaction.service';
 import { DrawRoutePathsService } from '../services/draw-routepaths.service';
 
+interface BaseMaps {
+  mapName: string;
+  map: any;
+  mapGroup?: any;
+}
+
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -22,15 +28,19 @@ export class MapComponent implements OnInit {
   geoPath: any;
   projection: any;
   baseMaps: BaseMaps[];
-  _window: Window;
+
+  // global variables as a result of service classes
+  colors: any;
 
   // serving map container by injecting dependancies from services
   constructor(private setupBaseMap: SetupMapsService,
-    private userInteraction: InteractionService,
-    private drawRoutePaths: DrawRoutePathsService) {}
+    private drawRoutePaths: DrawRoutePathsService,
+    private userInteraction: InteractionService) { }
 
   ngOnInit() {
     const _t = this;
+    const _initArray = [];
+    const _initSwitch = true;
 
     // Setting up an SVG to draw maps
     const promise = new Promise((resolve, reject) => {
@@ -61,34 +71,27 @@ export class MapComponent implements OnInit {
         { mapName: 'streets', map: streets },
         { mapName: 'freeways', map: freeways },
         { mapName: 'arteries', map: arteries }];
-
         _t.baseMaps.map((element) => {
           _t.setupBaseMap.drawBaseMapLayer(_t, element);
         });
         _t.setupBaseMap.drawBaseLayerText(_t, _t.baseMaps[0]);
-
         // resolve after the base layer is rendered
         resolve(_t);
       }
     });
 
-    // fetching from NextBus & setting up the paths for all routes
+    // fetching data from NextBus & setting up the paths for all routes
     promise.then((thisObj) => {
-      const myroutePaths = _t.drawRoutePaths.drawRoutes(thisObj);
-      return myroutePaths;
+      return _t.drawRoutePaths.drawRoutes(thisObj);
+    }).then((routePaths: any) => {
+      _t.colors = routePaths.routeColors;
+      return _t.userInteraction.populateBuses(_initArray, _t, _initSwitch);
     });
-     ///////////////////.then((routePaths) => {
-    //   console.log(routePaths);
-    //   return routePaths;
-    // });
     promise.catch((err) => {
       console.log(err);
     });
   }
 }
-
-interface BaseMaps {
-  mapName: string;
-  map: any;
-  mapGroup?: any;
-}
+// setInterval(function() {
+//   this.InteractionService.populateBuses();
+// }, 5000);
