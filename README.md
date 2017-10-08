@@ -1,5 +1,9 @@
 # SFOTransitMapViz
 
+## Data Source
+
+XML Feed/ JSON (Feed) is available under the terms of this LICENSE AGREEMENT (THE "AGREEMENT") from [NextBus](http://webservices.nextbus.com/#!/sf-muni/E/E____I_F00/4532/4503). 
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.3.
 
 ## Development server
