@@ -6,20 +6,8 @@ import { NextBus } from '../../nextbus.model';
 @Injectable()
 export class DrawRoutePathsService {
   public routeColors: RouteColors[] = [];
+  // this service is used once for drawing routes onto maps
   constructor(private http: Http) { }
-
-  // method to convert points into LineString co-ordinates
-  restructurePath(pathCoordinates) {
-    return {
-      type: 'Feature',
-      geometry: {
-        type: 'LineString',
-        coordinates: pathCoordinates.point.map(measure => {
-          return [+measure.lon, +measure.lat];
-        })
-      }
-    };
-  }
 
   // method to draw paths given a route list
   drawPaths(route, _map) {
@@ -36,7 +24,7 @@ export class DrawRoutePathsService {
       const links = _t.restructurePath(path);
       pathsToDraw.push(links);
     });
-    svgGroup.selectAll('.pathBind' + route.tag)
+    svgGroup.selectAll('.path-' + route.tag)
       .data(pathsToDraw)
       .enter()
       .append('path')
@@ -44,8 +32,21 @@ export class DrawRoutePathsService {
       .style('stroke', '#008fe5')
       .style('strokewidth', '2')
       .style('opacity', 0)
-      .attr('class', 'pathBind' + route.tag);
+      .attr('class', 'path-' + route.tag);
 
+  }
+
+  // method to convert points into LineString co-ordinates
+  restructurePath(pathCoordinates) {
+    return {
+      type: 'Feature',
+      geometry: {
+        type: 'LineString',
+        coordinates: pathCoordinates.point.map(measure => {
+          return [+measure.lon, +measure.lat];
+        })
+      }
+    };
   }
 
   // method to make http call to fetch all routes

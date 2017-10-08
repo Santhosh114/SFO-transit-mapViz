@@ -4,8 +4,7 @@ import { InteractionService } from '../../visualization/services/user-interactio
 
 @Component({
   selector: 'app-toggleroutes',
-  templateUrl: './toggleroutes.component.html',
-  styleUrls: ['./toggleroutes.component.css']
+  templateUrl: './toggleroutes.component.html'
 })
 export class ToggleroutesComponent implements OnInit {
   routetags: RouteTags[];
@@ -13,8 +12,7 @@ export class ToggleroutesComponent implements OnInit {
   numbers = new RegExp(/^[0-8]\d*$/);
   character = new RegExp(/^[A-Z]$/);
   constructor(private getRouteTags: FetchroutesService,
-              private userInteraction: InteractionService) {
-  }
+    private userInteraction: InteractionService) { }
 
   ngOnInit() {
     const _t = this;
@@ -22,16 +20,16 @@ export class ToggleroutesComponent implements OnInit {
       _t.routetags = tags.route;
     });
   }
-
+  // called upon user interaction
   updateRoutes() {
     const _t = this;
     _t.currentTag = this.routetags
-            .filter(opt => opt.checked)
-            .map(opt => opt.tag);
+      .filter(opt => opt.checked)
+      .map(opt => opt.tag);
     _t.userInteraction.populateBuses(_t.currentTag);
     return this.routetags
-            .filter(opt => opt.checked)
-            .map(opt => opt.tag);
+      .filter(opt => opt.checked)
+      .map(opt => opt.tag);
   }
 }
 

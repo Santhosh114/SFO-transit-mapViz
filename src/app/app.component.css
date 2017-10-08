@@ -3,7 +3,7 @@
 .wrapper {
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: 420px 420px 500px;
+  grid-template-columns: 440px 440px 400px;
   /*minmax(400px, 3fr) minmax(400px, 3fr) minmax(500px, 2fr);*/
   grid-template-rows: 70px 750px 30px;
   grid-template-areas:

@@ -10,16 +10,35 @@ body {
   font-weight: 700;
 }
 
-.card-header{
-    font-weight: 300;
-    color: #008fe5;
+#aboutTxt {
+  font-size: 0.7em;
+  font-weight: 400;
+}
+
+.footer-text {
+  font-size: 0.7em !important;
+  font-weight: 400 !important;
+  display: inline-block !important;
 }
 
 /* Toggle */
+
+.card-header{
+    font-weight: 400;
+    color: #008fe5 !important;
+}
+
 .tagText {
-  font-size:10px;
+  font-size:14px;
   display: inline-block;
   width: 80%;
+  font-weight: 400 !important;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    overflow-y: scroll;
+    padding: 15px !important;
 }
 
 div.switch {
@@ -78,6 +97,9 @@ input.cmn-toggle-round:checked + label:before {
 input.cmn-toggle-round:checked + label:after {
   margin-left: 16px;
 }
+
+/* Toggle  Ends*/
+
 
 /* basic d3 style setup */
 /* lables or text */

@@ -4,23 +4,16 @@ import { SetupMapsService } from '../services/setup-maps.service';
 import { InteractionService } from '../services/user-interaction.service';
 import { DrawRoutePathsService } from '../services/draw-routepaths.service';
 
-interface BaseMaps {
-  mapName: string;
-  map: any;
-  mapGroup?: any;
-}
-
 @Component({
   selector: 'app-map',
-  templateUrl: './map.component.html',
-  styleUrls: ['./map.component.css']
+  template: '',
 })
 export class MapComponent implements OnInit {
 
   // chart variables, dimentions & configurations
   mapHeight = 730;
-  mapWidth = 830;
-  baseProjectionScale = 265000;
+  mapWidth = 870;
+  baseProjectionScale = 290000;
   baseMapCenter = [-122.433701, 37.767683];
   mapRotation = [0, 0];
   svg: any;
@@ -28,21 +21,19 @@ export class MapComponent implements OnInit {
   geoPath: any;
   projection: any;
   baseMaps: BaseMaps[];
-
-  // global variables as a result of service classes
   colors: any;
 
-  // serving map container by injecting dependancies from services
+  // initializing services for  map container with dependancy injection
   constructor(private setupBaseMap: SetupMapsService,
     private drawRoutePaths: DrawRoutePathsService,
-    private userInteraction: InteractionService) { }
+    private userInteraction: InteractionService) {}
 
   ngOnInit() {
     const _t = this;
     const _initArray = [];
     const _initSwitch = true;
 
-    // Setting up an SVG to draw maps
+    // setting up an SVG to draw maps
     const promise = new Promise((resolve, reject) => {
       _t.svg = d3.select('app-map')
         .append('svg')
@@ -72,9 +63,9 @@ export class MapComponent implements OnInit {
         { mapName: 'freeways', map: freeways },
         { mapName: 'arteries', map: arteries }];
         _t.baseMaps.map((element) => {
-          _t.setupBaseMap.drawBaseMapLayer(_t, element);
+          _t.setupBaseMap.drawBaseMapLayer(_t, element);  // passing map object to service
         });
-        _t.setupBaseMap.drawBaseLayerText(_t, _t.baseMaps[0]);
+        _t.setupBaseMap.drawBaseLayerText(_t, _t.baseMaps[0]); // passing map object to service
         // resolve after the base layer is rendered
         resolve(_t);
       }
@@ -85,6 +76,7 @@ export class MapComponent implements OnInit {
       return _t.drawRoutePaths.drawRoutes(thisObj);
     }).then((routePaths: any) => {
       _t.colors = routePaths.routeColors;
+      // passing map object to service
       return _t.userInteraction.populateBuses(_initArray, _t, _initSwitch);
     });
     promise.catch((err) => {
@@ -92,6 +84,9 @@ export class MapComponent implements OnInit {
     });
   }
 }
-// setInterval(function() {
-//   this.InteractionService.populateBuses();
-// }, 5000);
+
+interface BaseMaps {
+  mapName: string;
+  map: any;
+  mapGroup?: any;
+}

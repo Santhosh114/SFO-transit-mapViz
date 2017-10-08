@@ -3,7 +3,8 @@
     <ng-template ngbPanelContent>
       <div *ngFor="let route of routetags">
         <div [ngSwitch]='character.test(route.tag)'>
-          <p class='tagText' *ngSwitchCase="true">{{ route.title }}</p>
+          <span class="tag-text" *ngSwitchCase="true"> {{ route.tag }}
+          <p class='tagText'>{{ ' |    ' + route.title.slice(2) }}</p> </span>
           <div *ngSwitchCase="true" class="switch">
             <input *ngSwitchCase="true" type="checkbox" name="selectedRoutes" value="{{route.tag}}" id="{{route.tag}}"
             class="cmn-toggle cmn-toggle-round" (change)="updateRoutes()" [(ngModel)]="route.checked" />
