@@ -1,8 +1,11 @@
 # SFOTransitMapViz
 
+## Screenshot
+![preview](src/assets/images/ScreenShot.png)
+
 ## Data Source
 
-XML Feed/ JSON (Feed) is available under the terms of this LICENSE AGREEMENT (THE "AGREEMENT") from [NextBus](http://webservices.nextbus.com/#!/sf-muni/E/E____I_F00/4532/4503). 
+XML Feed/ JSON (Feed) is available from [NextBus](https://www.sfmta.com/).
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.3.
 
@@ -25,7 +28,3 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ## Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
