@@ -32,9 +32,7 @@ export class InteractionService {
           return color.tag === tag;
         });
         const vehicleGroup: { [tag: string]: any; } = {};
-        const epochTime = '0';
-        const currentTag = tag;
-        const _nb = new NextBus('vehicleLocations', currentTag, epochTime);
+        const _nb = new NextBus('vehicleLocations', tag, _currentObj.epochTime);
         _currentObj.http.get(_nb.basePath, {
           params: {
             command: _nb.command,
@@ -48,7 +46,7 @@ export class InteractionService {
             const allVehicles = Object.assign({}, vehicleLocations).vehicle;
             if (allVehicles) {
               _currentObj.pastVehicles = allVehicles;
-              _currentObj.drawBuses(allVehicles, currentTag, tagColor);
+              _currentObj.drawBuses(allVehicles, tag, tagColor);
             }
           });
       });
