@@ -11,6 +11,7 @@ export class ToggleroutesComponent implements OnInit {
   currentTag: string[];
   numbers = new RegExp(/^[0-8]\d*$/);
   character = new RegExp(/^[A-Z]$/);
+  removeTag = new RegExp(/.*-(.*)/);
   constructor(private getRouteTags: FetchroutesService,
     private userInteraction: InteractionService) { }
 
